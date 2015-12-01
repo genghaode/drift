@@ -1,0 +1,19 @@
+{
+  "name": "drift",
+  "description": "nodejs",
+  "main": "",
+  "authors": [
+    "genghaode <genghaode@126.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/genghaode/drift",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./public/lib",
+    "test",
+    "tests"
+  ]
+}
