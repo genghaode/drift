@@ -1,0 +1,12 @@
+#regModal.modal.fade(role="dialog",aria-labelledby="myModalLabel")
+  .modal-dialog(role="document")
+    .modal-content
+      h4.modal-title 注册
+      label(for="username") 昵称
+        input#username(type="text", name="username", value="")
+      label(for="avatar") 头像
+        input#avatar(type="file", name="avatar", value="")
+      label(for="password") 密码
+        input#password(type="password", name="password" value="")
+      button.btn(type="button", data-dismiss="modal") 注册
+

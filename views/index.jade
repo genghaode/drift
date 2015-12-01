@@ -1,5 +1,8 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .container
+    include include/menu
+    include include/reg
+    include include/login
+    include include/throw

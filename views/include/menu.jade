@@ -1,0 +1,19 @@
+div
+  - var user = {};
+  - var showInfo = user.username?'block':'none';
+  - var showRegAndLogin = user.username?'none':'block';
+  #regInforDiv(style="display: #{showInfo}")
+    img#myAvarar(scr="#{user.avatar?user.avatar:''}")
+    span#myUsername=user.username
+    a(href="javascript:void(0);", onclick="logout()") 退出
+  #regBtnDiv(style="display:#{showRegAndLogin}")
+    a(href="javascript:void(0);", data-target="#regModal",data-toggle="modal") 注册
+  #loginBtnDiv(style="display:#{showRegAndLogin}")
+    a(href="javascript:void(0);", data-target="#loginModal",data-toggle="modal") 登录
+
+div
+  a(href="javascript:void(0);", data-target="#throwModal",data-toggle="modal") 扔一个
+    //span#throwTimes.badge #{6-user.throwTimes}
+  a(herf="javascript:void(0);", data-target="#pickModal",data-toggle="modal") 捞一个
+    //span#pickTimes.badge #{3-user.pickTimes}
+  a(href="javascript:void(0);", data-target="#myBottleModal",data-toggle="modal") 我的瓶子
