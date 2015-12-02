@@ -1,9 +1,8 @@
 div
-  - var user = {};
   - var showInfo = user.username?'block':'none';
   - var showRegAndLogin = user.username?'none':'block';
   #regInforDiv(style="display: #{showInfo}")
-    img#myAvarar(scr="#{user.avatar?user.avatar:''}")
+    img#myAvarar(src="#{user.avatar?user.avatar:''}")
     span#myUsername=user.username
     a(href="javascript:void(0);", onclick="logout()") 退出
   #regBtnDiv(style="display:#{showRegAndLogin}")
