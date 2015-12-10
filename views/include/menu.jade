@@ -2,7 +2,7 @@ div
   - var showInfo = user.username?'block':'none';
   - var showRegAndLogin = user.username?'none':'block';
   #regInforDiv(style="display: #{showInfo}")
-    img#myAvarar(src="#{user.avatar?user.avatar:''}")
+    img#myAvarar(src="#{user.avatarName?user.avatarName:''}")
     span#myUsername=user.username
     a(href="javascript:void(0);", onclick="logout()") 退出
   #regBtnDiv(style="display:#{showRegAndLogin}")
@@ -12,7 +12,7 @@ div
 
 div
   a(href="javascript:void(0);", data-target="#throwModal",data-toggle="modal") 扔一个
-    //span#throwTimes.badge #{6-user.throwTimes}
+    span#throwTimes.badge #{6-user.throwTimes}
   a(herf="javascript:void(0);", data-target="#pickModal",data-toggle="modal") 捞一个
-    //span#pickTimes.badge #{3-user.pickTimes}
+    span#pickTimes.badge #{3-user.pickTimes}
   a(href="javascript:void(0);", data-target="#myBottleModal",data-toggle="modal") 我的瓶子

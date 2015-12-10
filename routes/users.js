@@ -18,8 +18,8 @@ router.post('/add', function(req, res){
    req.session.user = {
      username: user.username,
      avatarName: '/uploads/'+user.avatarName,
-     throwTime: 0,
-     pickTime: 0
+     throwTimes: 0,
+     pickTimes: 0
    }
    model.save(user, function(data){
      if(data){

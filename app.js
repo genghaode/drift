@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
 var settings = require('./settings');
+var model = require('./db');
 
 
 var routes = require('./routes/index');
@@ -32,15 +33,28 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: settings.secret,
   resave: true,
-  saveUninitialized: false,
+  saveUninitialized: true,
   store: new RedisStore({
     host: settings.host,
-    port: settings.port
+    port: settings.port,
+    pass: settings.auth
   })
 }));
+//pass为数据库密码，db为哪个数据库，没有则默认不分库
 app.use(function(req, res, next){
-  res.locals.user = req.session.user || {};
-  next();
+  var user = req.session.user;
+  if(user){
+    model.getTimes(user.username, function(err, data){
+      user.throwTimes = data.throwTimes || 0;
+      user.pickTimes = data.pickTimes || 0;
+      res.locals.user = user;
+      next();
+    });
+  }else {
+    res.locals.user = {throwTimes: 0, pickTimes: 0};
+    next();
+  }
+  
 });
 app.use('/', routes);
 app.use('/users', users);
